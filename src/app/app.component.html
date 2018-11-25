@@ -1,0 +1,87 @@
+<mat-toolbar
+  color="primary"
+  style="height: 64px; position: fixed; left: 0; top: 0; right: 0; z-index: 2;"
+>
+  <mat-toolbar-row> <span>Custom Toolbar</span> </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="position-absolute" style="top: 64px; left: 0; right: 0; bottom: 0;">
+  <div
+    class="container position-relative pt-2"
+    style="height: calc(100vh - 64px)"
+  >
+    <div class="row" style="height: 100%">
+      <div class="col-4" style="height: 100%; overflow-y: auto;">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>Kategori</mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div style="max-height: 300px; overflow-y: auto;">
+            <mat-selection-list
+              dense
+              #categories
+              (selectionChange)="onCategorySelectionChange($event)"
+            >
+              <mat-list-option
+                *ngFor="let category of vendorCategories.keys()"
+                [value]="category"
+              >
+                <img mat-list-avatar [src]="category | vendorCategoryAvatar" />
+                {{ category | vendorCategoryTitle }}
+              </mat-list-option>
+            </mat-selection-list>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="mt-1">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Pris</mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div style="max-height: 300px; overflow-y: auto;">
+            <mat-selection-list
+              dense
+              #categories
+              (selectionChange)="onCategorySelectionChange($event)"
+            >
+              <mat-list-option
+                *ngFor="let category of vendorCategories.keys()"
+                [value]="category"
+              >
+                <img mat-list-avatar [src]="category | vendorCategoryAvatar" />
+                {{ category | vendorCategoryTitle }}
+              </mat-list-option>
+            </mat-selection-list>
+          </div>
+        </mat-expansion-panel>
+
+        <mat-expansion-panel class="mt-1">
+          <mat-expansion-panel-header>
+            <mat-panel-title>Kategori</mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <div style="max-height: 300px; overflow-y: auto;">
+            <mat-selection-list
+              dense
+              #categories
+              (selectionChange)="onCategorySelectionChange($event)"
+            >
+              <mat-list-option
+                *ngFor="let category of vendorCategories.keys()"
+                [value]="category"
+              >
+                <img mat-list-avatar [src]="category | vendorCategoryAvatar" />
+                {{ category | vendorCategoryTitle }}
+              </mat-list-option>
+            </mat-selection-list>
+          </div>
+        </mat-expansion-panel>
+      </div>
+
+      <div class="col-8" style="overflow-y: auto;">
+        <app-vendor-list [vendors]="displayedVendors"></app-vendor-list>
+      </div>
+    </div>
+  </div>
+</div>
